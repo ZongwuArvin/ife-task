@@ -1,0 +1,269 @@
+/*=========
+公共样式
+==========*/
+body, h1, h2, h3, h4, h5, h6, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body{
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+}
+h1, h2, h3, h4, h5, h6{
+    text-decoration: underline;
+}
+
+
+/*=========
+工具样式
+==========*/
+
+/*=========
+自定义样式
+==========*/
+/*头部*/
+header{
+    border-bottom: 2px solid #938e8c;
+    font-family: "黑体";
+    position: relative;
+}
+.container{
+    width: 892px;
+    padding: 0 44px;
+    margin: 0 auto;
+    height: 1386px;
+}
+header .logo{
+    width: 110px;
+    height: 60px;
+    background-color:#d45d5c;
+    text-align: center;
+    display: table-cell;
+    vertical-align: bottom;
+}
+header .logo p{
+    color: #fff;
+    font-size: 12px;
+}
+header .datetime{
+    position: absolute;
+    bottom: 3px;
+    right: 0;
+    color: #d45d5c;
+}
+
+/*about*/
+.about{
+    margin: 36px 0;
+    position: relative;
+}
+.about .picture-area{
+    width: 641px;
+    height: 301px;
+    background-image: url(../img/task06.jpg);
+    background-size: 100% 100%;
+    position: relative;
+}
+.picture-area .left-wrap{
+    width: 191px;
+    height: 100%;
+    background-color: rgba(155,190,160,0.5);
+}
+.picture-area .right-wrap{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 191px;
+    height: 100%;
+    background-color: rgba(228,183,182,0.5);
+}
+
+.about .text-area{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 203px;
+    border-top: 2px solid #cc8091;
+}
+.text-area h1,h2{
+    font-weight: normal;
+}
+.text-area h1 span,h2 span{
+    font-size: 24px;
+    font-weight: bold;
+}
+.text-area p{
+    margin-bottom: 10px;
+    font-family: "楷体";
+}
+.text-two{
+    margin-left: 20px;
+}
+.text-area .text-one{
+    font-size: 116px;
+    color: #75b86b;
+}
+.text-area .text-two{
+    font-size: 55px;
+    color: #cc8091;
+    position: relative;
+}
+.text-area .text-two .text-three{/*position的滥用??*/
+    position: absolute;
+    font-size: 21px;
+    left: 100px;
+    top: 20px;
+}
+.text-area .text-two .text-forth{
+    position: absolute;
+    font-size: 12px;
+    left: 100px;
+    top: 39px;
+}
+
+/*第二部分*/
+.text{
+    width: 641px;
+    text-align: justify;
+}
+.text h1{
+    font-size: 16px;
+    font-weight: bold;
+}
+.text .what{
+    width: 35%;
+    display: inline-block;
+    padding-right: 3%;
+}
+.text .what h1{
+    color: #d2994f;
+}
+.text .when{
+    width: 27%;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 3%;
+}
+.text .when h1{
+    color: #d2994f;
+}
+.text .how{
+    width: 27%;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 3%;
+}
+.text .how h1{
+    color: #cc7680;
+}
+.text p{
+    margin-bottom: 8px;
+}
+
+/*第三部分*/
+.technologe{
+    position: relative;
+    margin-bottom: 20px;
+}
+.tech-left{
+    width: 415px;
+    text-align: justify;
+}
+.tech-left h1{
+    font-size: 42px;
+    color: #11456b;
+    font-family: "黑体";
+    text-decoration: none;
+}
+.tech-left h1 em{
+    font-size: 72px;
+    color: #f5e327;
+}
+.tech-left img{
+    width: 100px;
+    height: 200px;
+    margin: 20px 0 20px 20px;
+    float: right;
+}
+.tech-left span{
+    float: left;
+    font-size: 70px;
+    color: #f5e327;
+    padding-right: 10px;
+}
+.tech-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 458px;
+}
+
+.tech-right .tech-right-img{
+    width: 458px;
+    height: 275px;
+    background-image: url(../img/task06-03.jpg);
+    background-size: 100% 100%;
+    margin-bottom: 20px;
+}
+.tech-right .tech-right-img .tech-right-wrap{
+    width: 458px;
+    height: 61px;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 214px;
+}
+.tech-right-wrap .tech-one{
+    line-height: 61px;
+    font-size: 26px;
+    color: #fff;
+    border-left: 3px solid #72b16a;
+    margin-left: 30px;
+    padding-left: 15px;
+}
+.tech-right-wrap i{
+    font-size: 12px;
+    color: #72b16a;
+    margin-left: 10px;
+}
+
+.tech-right-text{
+    background-color: rgb(238,237,214);
+    overflow: hidden;
+}
+.tech-right-text span{
+    line-height: 40px;
+    font-size: 12px;
+    color: #5a5b5b;
+}
+.tech-right-text .right-one{
+    margin-top: 20px;
+}
+.tech-right-text .triangle{
+    width: 0;
+    height: 0;
+    border-left:5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #10456b;
+    display: inline-block;
+    margin-left: 50px;
+}
+.tech-right-text .red-text{
+    width: 260px;
+    height: 160px;
+    background-color: rgb(213,93,92);
+    float: left;
+    color: #fff;
+}
+.tech-right-text .red-text .zero{
+    font-size: 110px;
+    color: #fff;
+    border-right: 2px solid #fff;
+    line-height: 86px;
+}
+
+/*footer*/
+footer{
+    border-top: 1px solid #938e8c;
+    position: relative;
+}
+footer p{
+    position: absolute;
+    right: 5px;
+}
