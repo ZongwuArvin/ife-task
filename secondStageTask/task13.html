@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE JavaScript task 01</title>
+</head>
+<body>
+<label>姓名：<input id="name" type="text"></label>
+<button id="submit">确认填写</button>
+<div>您输入的值是：<span id="display">尚未录入</span></div>
+
+<script type="text/javascript">
+   /* var submit = document.getElementById("submit");
+    submit.onclick=function () {
+        var name = document.getElementById('name');
+        var display = document.getElementById("display");
+        console.log(typeof name);
+        console.log(name.value);
+        display.innerHTML=name.value;
+    }*/
+   (function(){
+       var submit = document.querySelector("#submit");
+       var name = document.querySelector("#name");
+       submit.onclick = function(){
+           console.log(name.value);
+       }
+   })();
+</script>
+</body>
+</html>
