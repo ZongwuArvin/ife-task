@@ -8,7 +8,9 @@
 <label>姓名：<input id="name" type="text"></label>
 <button id="submit">确认填写</button>
 <div>您输入的值是：<span id="display">尚未录入</span></div>
-
+<div class="one"></div>
+<div class="one"></div>
+<div class="one"></div>
 <script type="text/javascript">
    /* var submit = document.getElementById("submit");
     submit.onclick=function () {
@@ -21,6 +23,10 @@
    (function(){
        var submit = document.querySelector("#submit");
        var name = document.querySelector("#name");
+       var one = document.querySelectorAll(".one");
+       var one2 = document.getElementsByClassName("one");
+       console.log(one);
+       console.log(one2);
        submit.onclick = function(){
            console.log(name.value);
        }
