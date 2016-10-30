@@ -1,0 +1,72 @@
+/*样式重置*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5 tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+/*公共样式*/
+body{
+  font-family: "Microsoft YaHei";
+  font-size: 14px;
+}
+a{
+  color: #393a3a;
+}
+a:hover{
+  text-decoration: none;
+}
+.container{
+  width:100%;
+  min-width: 1280px;
+}
+
+/*工具样式*/
+
+
+
+/*自定义样式*/
+header{
+  height:60px;
+  background-color:#56ffff;  //#fff
+}
+nav{
+  width: 1180px;
+  margin:0 auto;
+  color: #393a3a;
+  line-height:60px;
+  a{
+    img{
+      width: 40px;
+      height:30px;
+    }
+    span{
+      font-family: "黑体";
+      font-size:21px;
+    }
+    float: left;
+  }
+  .login{
+    float: right;
+  }
+  ul{
+    float: right;
+    li{
+      float: left;
+      width: 80px;
+    }
+  }
+
+}
+
+
+

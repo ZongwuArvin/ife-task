@@ -2,33 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>IFE JavaScript task 01</title>
+    <title>IFE task 13</title>
 </head>
 <body>
-<label>姓名：<input id="name" type="text"></label>
-<button id="submit">确认填写</button>
-<div>您输入的值是：<span id="display">尚未录入</span></div>
-<div class="one"></div>
-<div class="one"></div>
-<div class="one"></div>
+<label>姓名：<input id="aqi-input" type="text"></label>
+<button id="button">确认填写</button>
+<div>您输入的值是：<span id="aqi-display">尚未录入</span></div>
 <script type="text/javascript">
-   /* var submit = document.getElementById("submit");
-    submit.onclick=function () {
-        var name = document.getElementById('name');
-        var display = document.getElementById("display");
-        console.log(typeof name);
-        console.log(name.value);
-        display.innerHTML=name.value;
-    }*/
    (function(){
-       var submit = document.querySelector("#submit");
-       var name = document.querySelector("#name");
-       var one = document.querySelectorAll(".one");
-       var one2 = document.getElementsByClassName("one");
-       console.log(one);
-       console.log(one2);
-       submit.onclick = function(){
-           console.log(name.value);
+       var $ = function (id) {
+           return document.getElementById(id);
+       };
+       var input = $("aqi-input");
+       var submit = $("button");
+       var dis = $("aqi-display");
+
+       if (submit.addEventListener){
+           submit.addEventListener("click", display, false);
+       }else if(submit.attachEvent){
+           submit.attachEvent("onclick", display);
+       }else{
+           submit["onclick"] = display;
+       }
+       input.onkeyup = function (event) {   //考虑回车
+           if (event.keyCode === 13){
+               display();
+           }
+       }
+
+       function display(){
+           var val = input.value.trim(); //去除两端空白符
+           if (val.length >0){
+               dis.textContent = val;
+           }else{
+               alert("Please complete the form!");
+           }
        }
    })();
 </script>
