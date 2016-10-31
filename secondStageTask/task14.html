@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE task 14</title>
+</head>
+<body>
+<h3>污染城市列表</h3>
+<ul id="aqi-list"></ul>
+<script type="text/javascript">
+    var aqiData = [
+        ["北京", 90],
+        ["上海", 50],
+        ["福州", 10],
+        ["广州", 50],
+        ["成都", 90],
+        ["西安", 100]
+    ];
+    (function () {
+        var len = aqiData.length;
+        var list = document.getElementById("aqi-list");
+        var arr = ["一","二","三","四","五","六"];
+        aqiData.sort(function (a,b) {
+            return b[1] - a[1];
+        })
+        for(var i=0;i<len;i++){
+            if(aqiData[i][1]>60){
+                //console.log(list);
+                //list.appendChild("<li>"+aqiData[i][0]+","+aqiData[i][1]+"</li>");
+                var oLi = document.createElement("li");
+                oLi.innerHTML = "第"+arr[i]+"名："+aqiData[i][0]+","+aqiData[i][1];
+                list.appendChild(oLi);
+            }
+        }
+    })();
+</script>
+</body>
+</html>
