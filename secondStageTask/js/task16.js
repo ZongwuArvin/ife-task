@@ -26,6 +26,7 @@ var eventUtil = {
  * 然后渲染aqi-list列表，增加新增的数据
  */
 function addAqiData() {
+    //正则检测，字符串中间不可输入空白字符，不用消除中间空白符
     var city = document.getElementById("aqi-city-input").value.trim();
     var valueNum = document.getElementById("aqi-value-input").value.trim();
     var reg = /^[A-Za-z\u4e00-\u9fa5]+$/;
@@ -53,6 +54,7 @@ function renderAqiList() {
         if (aqiTable.children.length === 0) {
             aqiTable.innerHTML = "<tr> <td>城市</td> <td>空气质量</td> <td>操作</td> </tr>";
         }
+        console.log(aqiTable.children.length);
         var tr = document.createElement("tr");
         var td1 = document.createElement("td");
         td1.innerHTML = city;
