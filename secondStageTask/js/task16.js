@@ -54,7 +54,6 @@ function renderAqiList() {
         if (aqiTable.children.length === 0) {
             aqiTable.innerHTML = "<tr> <td>城市</td> <td>空气质量</td> <td>操作</td> </tr>";
         }
-        console.log(aqiTable.children.length);
         var tr = document.createElement("tr");
         var td1 = document.createElement("td");
         td1.innerHTML = city;
