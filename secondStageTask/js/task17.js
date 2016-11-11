@@ -49,7 +49,70 @@ var pageState = {
     nowGraTime:"day"
 }
 
+function addHandler(ele,type,handler) {
+    if (ele.addEventListener){
+        ele.addEventListener(type,handler,false);
+    }else if (ele.attachEvent){
+        ele.attachEvent('on'+type,handler);
+    }else{
+        ele['on'+type] = handler;
+    }
+}
 
+//渲染图表
+function renderChart() {
+    
+}
 
+//日、周、月的radio事件点击的处理函数
+function graTimeChange(radio) {
+    var value = radio.value;
+
+}
+
+//Select发生变化时处理函数
+function citySelectChange(){
+
+}
+
+//初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
+function initGraTimeForm() {
+    var radio = document.getElementsByName("gra-time");
+    for (var i=0;i<radio.length;i++){
+        addHandler(radio[i],'click',function () {
+            graTimeChange(this);
+        })
+    }
+    /*for (var i=0;i<radio.length;i++){
+        (function (m) {
+            addHandler(radio[m],'click',function () {
+                graTimeChange(radio[m]);
+            })
+        })(i);
+    }*/
+
+}
+
+//初始化城市Select下拉选择框中的选项
+function initCitySelector() {
+    var city = [];
+    for (var i=0;i<aqiSourceData.length;i++){
+        city[i] = aqiSourceData[i][0];
+    }
+}
+
+//初始化图表需要的数据格式
+function initAqiChartData() {
+    
+}
+
+//初始化函数
+function init() {
+    initGraTimeForm();
+    initCitySelector();
+    initAqiChartData();
+}
+
+init();
 
 
