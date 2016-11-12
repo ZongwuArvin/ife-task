@@ -95,10 +95,17 @@ function initGraTimeForm() {
 
 //初始化城市Select下拉选择框中的选项
 function initCitySelector() {
-    var city = [];
-    for (var i=0;i<aqiSourceData.length;i++){
-        city[i] = aqiSourceData[i][0];
-    }
+    // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
+    var select = document.getElementById("city-select");
+    var cityArr = Object.getOwnPropertyNames(aqiSourceData);
+    var displayArr = cityArr.map(function (item) {
+        return "<option>" + item + "</option>";
+    });
+    pageState.nowSelectCity = cityArr[0];
+    select.innerHTML = displayArr.join("");
+
+    // 给select设置事件，当选项发生变化时调用函数citySelectChange
+    addHandler(select,'change',citySelectChange);
 }
 
 //初始化图表需要的数据格式
