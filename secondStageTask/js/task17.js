@@ -46,13 +46,22 @@ var aqiSourceData = {
 //事件处理程序
 function addHandler(ele,type,handler){
     if(ele.addEventListener){
-        ele.addEventListener(type,handler,false)
+        ele.addEventListener(type,handler,false);
     }else if(ele.attachEvent){
-        ele.attachEvent('on'+type,handler)
+        ele.attachEvent('on'+type,handler);
     }else{
-        ele['on'+type]=handler
+        ele['on'+type]=handler;
     }
 }
+
+function getWidth(width, len) {
+    var posObj = {};
+    posObj.width = Math.floor(width / (len*2));
+    posObj.left = Math.floor(width / len);
+    posObj.offsetLeft = (width - posObj.left * (len - 1) - posObj.width) / 2;
+    return posObj;
+}
+
 
 // 用于渲染图表的数据
 var chartData = {};
@@ -67,7 +76,18 @@ var pageState = {
  * 渲染图表
  */
 function renderChart() {
-
+    var innerHTML = "", i = 0;
+    var wrapper = document.getElementById("aqi-chart-wrap");
+    var width = wrapper.clientWidth;
+    var selectedData = chartData[pageState.nowGraTime][pageState.nowSelectCity];
+    var len = Object.keys(selectedData).length;
+    var posObj = getWidth(width, len);
+    innerHTML += "<div class='title'>" + pageState.nowSelectCity + "市01-03月"+ getTitle() +"空气质量报告</div>"
+    for (var key in selectedData) {
+        innerHTML += "<div class='aqi-bar " + pageState.nowGraTime + "' style='height:" + selectedData[key] + "px; width: " + posObj.width +"px; left:" + (posObj.left * i + posObj.offsetLeft) + "px; background-color:" + colors[Math.floor(Math.random() * 11)] + "'></div>"
+        innerHTML += "<div class='aqi-hint' style='bottom: " + (selectedData[key] + 10) + "px; left:" + getHintLfeft(posObj, i++) + "px'>" + key + "<br/> [AQI]: " + selectedData[key] + "</div>"
+    }
+    wrapper.innerHTML = innerHTML;
 }
 
 /**
@@ -97,7 +117,7 @@ function citySelectChange() {
  */
 function initGraTimeForm() {
     var radio = document.getElementById('form_gra_time');
-    addHandler(radio,"click",graTimeChange)
+    addHandler(radio,"click",graTimeChange);
 }
 
 /**
@@ -106,12 +126,12 @@ function initGraTimeForm() {
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city_select的下拉列表中的选项
   var city = Object.keys(aqiSourceData);
-  var citySelect = document.getElementById('city_select')
+  var citySelect = document.getElementById('city_select');
   for(var i in city){
-    var opt = document.createElement('option')
-    opt.value = city[i]
-    opt.innerHTML = city[i]
-    citySelect.appendChild(opt)
+    var opt = document.createElement('option');
+    opt.value = city[i];
+    opt.innerHTML = city[i];
+    citySelect.appendChild(opt);
   }
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
 
@@ -121,15 +141,56 @@ function initCitySelector() {
  * 初始化图表需要的数据格式
  */
 function initAqiChartData() {
-  // 将原始的源数据处理成图表需要的数据格式
-  // 处理好的数据存到 chartData 中
+    // 将原始的源数据处理成图表需要的数据格式
+    var week = {}, count = 0, singleWeek = {},
+        month = {}, mcount = 0, singleMonth = {};
+
+    for (var key in aqiSourceData) {
+        var tempCity = aqiSourceData[key];
+        var keyArr = Object.getOwnPropertyNames(tempCity);
+        var tempMonth = keyArr[0].slice(5, 7);
+        var weekInit = 4, weekCount = 0;
+        for (var i = 0; i < keyArr.length; i++, weekInit++) {
+            count += tempCity[keyArr[i]];
+            mcount += tempCity[keyArr[i]];
+            weekCount++;
+            if ((weekInit+1) % 7 == 0 || i == keyArr.length - 1 || keyArr[i+1].slice(5, 7) !== tempMonth) {
+                var tempKey = keyArr[i].slice(0, 7) + "月第" + (Math.floor(weekInit / 7) + 1) + "周";
+                singleWeek[tempKey] = Math.floor(count / weekCount);
+
+                if (i != keyArr.length - 1 && keyArr[i+1].slice(5, 7) !== tempMonth) {
+                    weekInit = weekCount % 7;
+                }
+                count = 0;
+                weekCount = 0;
+
+                if (i == keyArr.length - 1 || keyArr[i+1].slice(5, 7) !== tempMonth) {
+                    tempMonth = (i == keyArr.length - 1) ? keyArr[i].slice(5, 7) : keyArr[i+1].slice(5, 7);
+                    var tempMKey = keyArr[i].slice(0, 7);
+                    var tempDays = keyArr[i].slice(-2);
+                    singleMonth[tempMKey] = Math.floor(mcount / tempDays);
+                    mcount = 0;
+                }
+            }
+        }
+        week[key] = singleWeek;
+        month[key] = singleMonth;
+        singleWeek = {};
+        singleMonth = {};
+    }
+    // 处理好的数据存到 chartData 中
+    chartData.day = aqiSourceData;
+    chartData.week = week;
+    chartData.month = month;
+    renderChart();
+
 }
 
 /**
  * 初始化函数
  */
 function init() {
-  initGraTimeForm()
+  initGraTimeForm();
   initCitySelector();
   initAqiChartData();
 }
