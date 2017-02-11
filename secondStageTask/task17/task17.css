@@ -93,9 +93,9 @@ label input{
     box-shadow: 0px 0px 5px #ddd;
     opacity: .8;
 }
-/*.show + div{
+.show + div{
     display: block;
-}*/
+}
 .title{
     position: absolute;
     text-align: center;

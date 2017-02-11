@@ -164,8 +164,7 @@ function initGraTimeForm() {
             })
         })(i);
     }
-   // var aqi-hint = document.getElementsByClassName('aqi-hint');
-   /* addHandler(document, 'mouseover', function (event) {
+    addHandler(document, 'mouseover', function (event) {
         var ele = event.target;
         console.log(ele+" 12")
         ele.className += " show";
@@ -173,7 +172,7 @@ function initGraTimeForm() {
     addHandler(document, 'mouseout', function (event) {
         var ele = event.target;
         ele.className = ele.className.replace(/show/, "");
-    });*/
+    });
 }
 
 
