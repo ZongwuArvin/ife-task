@@ -79,23 +79,6 @@ label input{
     background-color: #16324a;
     color: #fff;
 }
-.aqi-hint{
-    position: absolute;
-    display: none;
-    width:120px;
-    border:1px solid #16324a;
-    background-color: white;
-    z-index: 999;
-    font-size:.75rem;
-    line-height:20px;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px #ddd;
-    opacity: .8;
-}
-.show + div{
-    display: block;
-}
 .title{
     position: absolute;
     text-align: center;
