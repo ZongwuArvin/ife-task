@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE task 20</title>
+    <style>
+        #container{
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        #container div{
+            background-color: #ff3448;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            margin:5px;
+        }
+        #container span{
+            background-color: #455bdd;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="text_area" rows="5" cols="20" placeholder="请输入字符并用不同符号分开"></textarea>
+    <input type="button" value="插入">
+    <input type="text" placeholder="请输入需要查询的字符">
+    <input type="button" value="查询">
+
+    <div id="container"></div>
+    <script src="task20.js"></script>
+</body>
+</html>
