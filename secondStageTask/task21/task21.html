@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE task 21</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+
+        #tag_container b,
+        #hobby_container b {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            background-color: rgb(139, 202, 255);
+            color: white;
+        }
+
+        #tag_container b:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="tag" placeholder="tag">
+    <div id="tag_container"></div>
+    <hr>
+    <textarea id="hobby" rows="5" cols="20">
+        HTML,CSS.front-end 前端   JavaScript/bootstrap
+    </textarea>
+    <button id="confirm">确认爱好</button>
+    <div id="hobby_container"></div>
+    <script src="task21.js"></script>
+</body>
+</html>
